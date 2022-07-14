@@ -18,7 +18,9 @@ function handleCategory(event){
  setSelectedCategory(event.target.value);
 }
 
-
+const displayItems = itemsToDisplay.map((item) => (
+  <Item key={item.id} name={item.name} category={item.category} />
+))
 
   return (
     <div className="ShoppingList">
@@ -31,9 +33,7 @@ function handleCategory(event){
         </select>
       </div>
       <ul className="Items">
-        {itemsToDisplay.map((item) => (
-          <Item key={item.id} name={item.name} category={item.category} />
-        ))}
+        {displayItems}
       </ul>
     </div>
   );
